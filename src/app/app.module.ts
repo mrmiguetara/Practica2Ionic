@@ -6,25 +6,40 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { DetailPage } from '../pages/detail/detail';
+import { DatabaseProvider } from '../providers/database/database';
+
+import { IonicStorageModule } from '@ionic/storage';
+import { HttpModule } from '@angular/http';
+
+import { SQLitePorter } from '@ionic-native/sqlite-porter';
+import { SQLite } from '@ionic-native/sqlite';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    DetailPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    DetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatabaseProvider,
+    SQLitePorter,
+    SQLite
   ]
 })
 export class AppModule {}

@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS operaciones(id INTEGER PRIMARY KEY AUTOINCREMENT,Operacion TEXT,Resultado Decimal,FechaHora Datetime);
